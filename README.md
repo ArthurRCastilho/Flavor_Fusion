@@ -6,6 +6,7 @@ Este é um aplicativo de receitas, na qual cada usuário consegue armazenar suas
 
 ## Layouts
 > :construction: Projeto Em Construção :construction:
+<img src="./assets/readme/SplashScreen.png" alt="SplashScreen" width="270px"> 
 <!-- <img src="" alt="" width="270px">  -->
 
 #### O que já foi feito?
