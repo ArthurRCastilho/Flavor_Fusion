@@ -6,10 +6,10 @@ Este é um aplicativo de receitas, na qual cada usuário consegue armazenar suas
 
 ## Layouts
 > :construction: Projeto Em Construção :construction:
-<img src="" alt="FigmaProject" width="270px"> 
+<!-- <img src="" alt="" width="270px">  -->
 
 #### O que já foi feito?
-- [ ] Splash Screen;
+- [X] Splash Screen;
 - [ ] Login and Signup Screen;
 - [ ] Home Screen;
 - [ ] Detail Meal Screen.

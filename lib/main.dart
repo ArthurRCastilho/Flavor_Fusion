@@ -1,4 +1,6 @@
+import 'package:flavor_fusion/screens/auth_screen/auth_screen.dart';
 import 'package:flavor_fusion/screens/splash_screen/splash_screen.dart';
+import 'package:flavor_fusion/utils/app_routes.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,19 +14,24 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Flavor Fusion',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: const Color(0xFFFF6F61),
         colorScheme: ColorScheme.fromSwatch().copyWith(
-          primary: const Color(0xFFFF6F61), // Cor Primaria (Botões Principais, icones importantes)
-          onPrimary: const Color(0xffFFD700), // Accent Color (Pequenos detalhes em destaque)
+          primary: const Color(
+              0xFFFF6F61), // Cor Primaria (Botões Principais, icones importantes)
+          onPrimary: const Color(
+              0xffFFD700), // Accent Color (Pequenos detalhes em destaque)
           secondary: const Color(0xff4A4A4A), // Secundária (Cor para texto)
           tertiary: const Color(0xffFFE6D5), // Terciária (Fundo da aplicação)
         ),
         useMaterial3: true,
       ),
-      home: const SplashScreen(),
+      routes: {
+        AppRoutes.SPLASH_SCREEN: (ctx) => const SplashScreen(),
+        AppRoutes.AUTH: (ctx) => const AuthScreen(),
+      },
     );
   }
 }
