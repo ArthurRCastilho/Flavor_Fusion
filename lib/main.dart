@@ -1,4 +1,5 @@
 import 'package:flavor_fusion/screens/auth_screen/auth_screen.dart';
+import 'package:flavor_fusion/screens/categories_screen/categories_screen.dart';
 import 'package:flavor_fusion/screens/splash_screen/splash_screen.dart';
 import 'package:flavor_fusion/utils/app_routes.dart';
 import 'package:flutter/material.dart';
@@ -26,10 +27,12 @@ class MyApp extends StatelessWidget {
           tertiary: const Color(0xffFFE6D5), // Terciária (Fundo da aplicação)
         ),
         useMaterial3: true,
+        scaffoldBackgroundColor: const Color(0xffFFE6D5),
       ),
       routes: {
         AppRoutes.SPLASH_SCREEN: (ctx) => const SplashScreen(),
         AppRoutes.AUTH: (ctx) => const AuthScreen(),
+        AppRoutes.CATEGORIES: (ctx) => const CategoriesScreen(),
       },
     );
   }

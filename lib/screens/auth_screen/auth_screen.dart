@@ -28,16 +28,29 @@ class AuthScreen extends StatelessWidget {
                   TextFormField(
                     decoration: const InputDecoration(
                       labelText: 'Username',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(10),
+                        ),
+                      ),
                     ),
                   ),
+                  const SizedBox(height: 10),
                   TextFormField(
                     decoration: const InputDecoration(
                       labelText: 'Senha',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(10),
+                        ),
+                      ),
                     ),
                   ),
                   const SizedBox(height: 20),
                   ElevatedButton.icon(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).pushReplacementNamed('/categories');
+                    },
                     label: const Text('Entrar'),
                     icon: const Icon(Icons.login),
                   ),
