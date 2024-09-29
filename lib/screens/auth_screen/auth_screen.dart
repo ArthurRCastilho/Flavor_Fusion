@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 
-class AuthScreen extends StatelessWidget {
+class AuthScreen extends StatefulWidget {
   const AuthScreen({super.key});
 
+  @override
+  State<AuthScreen> createState() => _AuthScreenState();
+}
+
+class _AuthScreenState extends State<AuthScreen> {
+  TextEditingController _controllerUsername = TextEditingController();
+  TextEditingController _controllerPassword = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,6 +33,7 @@ class AuthScreen extends StatelessWidget {
               child: Column(
                 children: [
                   TextFormField(
+                    controller: _controllerUsername,
                     decoration: const InputDecoration(
                       labelText: 'Username',
                       border: OutlineInputBorder(
@@ -37,6 +45,7 @@ class AuthScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 10),
                   TextFormField(
+                    controller: _controllerPassword,
                     decoration: const InputDecoration(
                       labelText: 'Senha',
                       border: OutlineInputBorder(
