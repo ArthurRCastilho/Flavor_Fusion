@@ -8,8 +8,28 @@ class AuthScreen extends StatefulWidget {
 }
 
 class _AuthScreenState extends State<AuthScreen> {
-  TextEditingController _controllerUsername = TextEditingController();
-  TextEditingController _controllerPassword = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
+  final TextEditingController _controllerUsername = TextEditingController();
+  final TextEditingController _controllerPassword = TextEditingController();
+
+  String? _validateUsername(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Campo obrigatório';
+    } else if (value.length <= 3) {
+      return 'O nome de usuário deve ter no mínimo 4 caracteres';
+    }
+    return null;
+  }
+
+  String? _validatePassword(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Campo obrigatório';
+    } else if (value.length <= 7) {
+      return 'O nome de usuário deve ter no mínimo 8 caracteres';
+    }
+    return null;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,9 +50,11 @@ class _AuthScreenState extends State<AuthScreen> {
             ),
             const SizedBox(height: 20),
             Form(
+              key: _formKey,
               child: Column(
                 children: [
                   TextFormField(
+                    validator: _validateUsername,
                     controller: _controllerUsername,
                     decoration: const InputDecoration(
                       labelText: 'Username',
@@ -45,6 +67,7 @@ class _AuthScreenState extends State<AuthScreen> {
                   ),
                   const SizedBox(height: 10),
                   TextFormField(
+                    validator: _validatePassword,
                     controller: _controllerPassword,
                     decoration: const InputDecoration(
                       labelText: 'Senha',
@@ -58,7 +81,16 @@ class _AuthScreenState extends State<AuthScreen> {
                   const SizedBox(height: 20),
                   ElevatedButton.icon(
                     onPressed: () {
-                      Navigator.of(context).pushReplacementNamed('/categories');
+                      if (_formKey.currentState!.validate()) {
+                        Navigator.of(context)
+                            .pushReplacementNamed('/categories');
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('Dados inválidos'),
+                          ),
+                        );
+                      }
                     },
                     label: const Text('Entrar'),
                     icon: const Icon(Icons.login),
